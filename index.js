@@ -1,46 +1,37 @@
 
+const api = (() => {
+    const Url = 'http://localhost:4232/courseList';
+    const courseList = 'courseList';
+
+    fetch('http://localhost:4232/courseList', {
+        method: 'GET',
+        body: new Data(),
+    })
+  .then((response) => response.json())
+  .then((data) => console.log(data));
+})
 
 // ------ View ------
 
-
-const showContent = (() => {
-    const appContent = {
-        courseContainer: '#courseList',
-        conent: '.content',
-    }
-})
-
-const render = (ele, tmp) => {
-    ele.innerHTML = tmp;
-};
-
-const makeTemplete = (arr) => {
-    let tmp = '';
-    arr.forEach(() => {
-        tmp += `
-            <li>
-            <span>${course.courseId}</span>
-            </li>
-            <li>
-            <span>${course.CourseName}</span>
-            </li> 
-            <li>
-            <span>${course.credit}</span>
-            </li>
-            `;
-    });
-    return makeTemplete;
-};
-// return 
-//     appContent,
-//     render,
-//     createTmp,
+function getCourse () {
+    let data;
+    var xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        data = JSON.parse(this.responseText)
+        console.log(JSON.parse(this.responseText)); 
+    
+      }
+    };
+    xhttp.open("GET", "http://localhost:4232/courseList", true);
+    xhttp.send();
+  }
+  getCourse();
 
 
-makeTemplete();
 
 // ------- Model --------
-const Model = ((api, view) => {
+const Model = ((api) => {
     class courseList {
         constructor(title) {
             this.courseId = 1;
@@ -52,15 +43,15 @@ const Model = ((api, view) => {
 
     class State {
         courseList = [];
-        get courses() {
-            return this.#courseList;
+        get courseList() {
+            return this.courseList;
         }
-        set courses(availableCourses) {
-            this.#courses = [...availableCourses];
+        set courseList(availableCourses) {
+            this.courseList = [...availableCourses];
 
             const availableCoursesContainer = document.querySelector
                 (view.appContent.availableCoursesContainer);
-            const tmp = view.createTmp(this.#courses);
+            const tmp = view.createTmp(this.courses);
             view.render(availableCoursesContainer, tmp);
 
         }
@@ -69,9 +60,9 @@ const Model = ((api, view) => {
     return {
         availableCourses,
         State,
-        Courses,
+        courseList,
     };
-})(api, view);
+})(api);
 
 
 
@@ -79,7 +70,7 @@ const Model = ((api, view) => {
 
 // ------- Controller --------
 
-const Controller = ((model, View) => {
+const Controller = ((model)  => {
     const state = new model.State();
 
     const deleteCourse = () =>{

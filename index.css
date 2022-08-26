@@ -20,16 +20,24 @@
     /* width */
 }
 
+#title {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+}
+.h1-title {
+    text-align: center;
+}
+
 
 header {
-    font-size: small;
+    font-size: medium;
+    font-style: bold;
     align-content: center;
-    border: solid 2px black;
-    width: 195px;
+    width: 275px;
     margin: 0;
-    margin-bottom: auto;
     text-align: center;
-    padding: 25px;;
+    padding: 25px;
 }
 
 .content {
@@ -45,8 +53,10 @@ header {
     font-size: small;
     border: 2px black;
     margin: 0; 
-    line-height auto;
+    line-height: auto;
 
+}
+ul {overflow: auto;
 }
 
 ul li {
@@ -55,6 +65,23 @@ ul li {
     align-content: space-evenly;
     text-align: center;
     justify-content: space-between;
+    justify-self: auto;
     padding: 10px;
 
+}
+
+ul li:hover {
+  font-size: 1.0rem;
+}
+
+.scroller {
+    width: 300px;
+    height: 300px;
+    overflow-y: scroll;
+    scrollbar-color: rebeccapurple green;
+    scrollbar-width: thin;
+  }
+
+li:nth-child(even) {
+    background-color:  rgb(221, 239, 221);
 }
