@@ -28,40 +28,56 @@ function getCourse () {
   }
   getCourse();
 
+  onload = function () {
+    const courseId = document.getElementById('courseId'.value);
+    if(this.courseId == 200){
+        let courseList;
+        try {
+            courseList =JSON.parse(this.responseText);
+        } catch(e) {
+            console.log(e);
+        }
+    }
+  }
 
 
 // ------- Model --------
 const Model = ((api) => {
-    class courseList {
-        constructor(title) {
-            this.courseId = 1;
-            this.CourseName = name;
+    class Course {
+        constructor(name, id, credit) {
+            this.id = id;
+            this.courseName = name;
             this.required = true;
             this.credit = Number;
         }
-    }
-
-    class State {
-        courseList = [];
-        get courseList() {
-            return this.courseList;
-        }
-        set courseList(availableCourses) {
-            this.courseList = [...availableCourses];
-
-            const availableCoursesContainer = document.querySelector
-                (view.appContent.availableCoursesContainer);
-            const tmp = view.createTmp(this.courses);
-            view.render(availableCoursesContainer, tmp);
-
+        get id (){
+            return this.id;
         }
     }
-    const { availableCourses } = api;
-    return {
-        availableCourses,
-        State,
-        courseList,
-    };
+
+let availableCourses = new Course();
+
+function course (name, id, credit, required) {
+    Course.prototype.constructor.call(this, name, id, credit, required)
+}
+course()
+
+//     class State {
+//         courseList = [];
+//         get courseList() {
+//             return this.courseList;
+//         }
+//         set courseList(availableCourses) {
+//             this.courseList = [...availableCourses];
+
+//             const availableCoursesContainer = document.querySelector
+//                 (view.appContent.availableCoursesContainer);
+//             const tmp = view.createTmp(this.courses);
+//             view.render(availableCoursesContainer, tmp);
+
+//         }
+//     }
+   
 })(api);
 
 
