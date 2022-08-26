@@ -1,0 +1,57 @@
+
+#grid-container {
+    display: grid;
+    grid-template-rows: 100px 300px;
+}
+
+/* css reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+  }
+
+.container {
+    height: 300PX;
+    width: 200px;
+    border: 3px solid black;
+    display: flex;
+    flex-wrap: wrap;
+
+}
+
+header {
+    font-size: small;
+    align-content: center;
+    border: solid 2px black;
+    width: 195px;
+    margin: 0;
+    margin-bottom: auto;
+    text-align: center;
+
+}
+
+.content {
+    margin-top: 100px;
+    display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#course-container {
+    list-style: none;
+    font-size: small;
+    border: 2px black;
+    padding: 25px;
+    margin: 0
+    line-height auto;
+}
+
+ul li {
+    list-style: none;
+    border: solid 1px black;
+    align-content: space-evenly;
+    text-align: center;
+    justify-content: space-between;
+}
