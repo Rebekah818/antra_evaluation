@@ -1,11 +1,11 @@
-export const Api = (() => {
-    const baseUrl = 'http://localhost:4232/courseList';
-    const availableCoursesPath = 'availablecourses';
+ const Api = (() => {
+    const Url = 'http://localhost:4232/courseList';
+    const availableCoursesPath = 'courseList';
   
-    const get courses = () =>
+    const courses = () =>
       fetch([baseUrl, availableCoursesPath].join('/')).then((response) => response.json());
   
-    const deletecourse = (id) =>
+    const deleteCourse = (id) =>
       fetch([baseUrl, availableCoursesPath, id].join('/'), {
         method: 'DELETE',
       });
@@ -21,8 +21,11 @@ export const Api = (() => {
         .then((response) => response.json());
   
     return {
-      availableCourses,
-      State,
-      courses
+        courses,
+        deleteCourse,
+        addCourses
     };
   })();
+
+
+f

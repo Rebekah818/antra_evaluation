@@ -1,14 +1,14 @@
+
+
 // ------ View ------
 
-const showContent (() => {
+
+const showContent = (() => {
     const appContent = {
-        courseContainer: '#course-container',
+        courseContainer: '#courseList',
         conent: '.content',
     }
 })
-
-
-
 
 const render = (ele, tmp) => {
     ele.innerHTML = tmp;
@@ -16,7 +16,7 @@ const render = (ele, tmp) => {
 
 const makeTemplete = (arr) => {
     let tmp = '';
-    arr.array.forEach((course) => {
+    arr.forEach(() => {
         tmp += `
             <li>
             <span>${course.courseId}</span>
@@ -29,19 +29,19 @@ const makeTemplete = (arr) => {
             </li>
             `;
     });
-    return tmp;
+    return makeTemplete;
 };
-return {
-    appContent,
-    render,
-    createTmp,
-};
+// return 
+//     appContent,
+//     render,
+//     createTmp,
+
 
 makeTemplete();
 
 // ------- Model --------
 const Model = ((api, view) => {
-    class Courses {
+    class courseList {
         constructor(title) {
             this.courseId = 1;
             this.CourseName = name;
@@ -51,9 +51,9 @@ const Model = ((api, view) => {
     }
 
     class State {
-        #courses = [];
+        courseList = [];
         get courses() {
-            return this.#courses;
+            return this.#courseList;
         }
         set courses(availableCourses) {
             this.#courses = [...availableCourses];
@@ -78,3 +78,12 @@ const Model = ((api, view) => {
 
 
 // ------- Controller --------
+
+const Controller = ((model, View) => {
+    const state = new model.State();
+
+    const deleteCourse = () =>{
+        const courseContainer = document.querySelector(view.appContent.courseContainer);
+
+    }
+})
