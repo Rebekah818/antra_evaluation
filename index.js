@@ -28,6 +28,7 @@ function getCourse () {
   }
   getCourse();
 
+
   onload = function () {
     const courseId = document.getElementById('courseId'.value);
     if(this.courseId == 200){
@@ -39,6 +40,7 @@ function getCourse () {
         }
     }
   }
+
 
 
 // ------- Model --------
@@ -85,12 +87,3 @@ course()
 
 
 // ------- Controller --------
-
-const Controller = ((model)  => {
-    const state = new model.State();
-
-    const deleteCourse = () =>{
-        const courseContainer = document.querySelector(view.appContent.courseContainer);
-
-    }
-})
