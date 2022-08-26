@@ -57,9 +57,23 @@ const Model = ((api, view) => {
         }
         set courses(availableCourses) {
             this.#courses = [...availableCourses];
+
+            const availableCoursesContainer = document.querySelector
+                (view.appContent.availableCoursesContainer);
+            const tmp = view.createTmp(this.#courses);
+            view.render(availableCoursesContainer, tmp);
+
         }
     }
-})
+    const { availableCourses } = api;
+    return {
+        availableCourses,
+        State,
+        Courses,
+    };
+})(api, view);
+
+
 
 
 
